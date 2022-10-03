@@ -15,7 +15,7 @@ const classes = (position: IPosition) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '50%',
+    width: 'auto',
     height: '50%',
   },
   buttons: {
@@ -88,10 +88,16 @@ const Modal: FC<IProps> = ({ imageUrl, open, onClose }) => {
           isPanning={isPanning}
         />
         <Box sx={sx.buttons}>
-          <Button variant="contained" onClick={() => setScale(scale + 0.1)}>
+          <Button
+            variant="contained"
+            onClick={() => setScale((prev) => prev + 0.1)}
+          >
             +
           </Button>
-          <Button variant="contained" onClick={() => setScale(scale - 0.1)}>
+          <Button
+            variant="contained"
+            onClick={() => setScale((prev) => prev - 0.1)}
+          >
             -
           </Button>
         </Box>
